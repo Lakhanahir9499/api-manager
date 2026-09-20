@@ -1,6 +1,7 @@
+version: "1"
 services:
   # Backend API Service
-  - type: web_service
+  - type: web
     name: api-manager-backend
     runtime: node
     plan: free
@@ -13,7 +14,7 @@ services:
       - key: PORT
         value: "10000"
       - key: MONGODB_URI
-        value: mongodb+srv://admin_db_user:eFuqxb1VvoQmRLgT@cluster0.mongodb.net/api-manager?retryWrites=true&w=majority&appName=Cluster0
+        sync: false
       - key: ADMIN_PASSWORD
         sync: false
       - key: JWT_SECRET
@@ -31,7 +32,7 @@ services:
     autoDeploy: true
 
   # Frontend Static Site
-  - type: static_site
+  - type: static
     name: api-manager-frontend
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
