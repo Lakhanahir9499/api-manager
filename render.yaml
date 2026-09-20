@@ -1,6 +1,6 @@
 services:
-  # Backend API Service - Native Node.js buildpack
-  - type: web
+  # Backend API Service
+  - type: web_service
     name: api-manager-backend
     runtime: node
     plan: free
@@ -30,11 +30,9 @@ services:
         value: "10000"
     autoDeploy: true
 
-  # Frontend Static Site - Native static buildpack
-  - type: static
+  # Frontend Static Site
+  - type: static_site
     name: api-manager-frontend
-    runtime: static
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
     pullRequestPreviewsEnabled: true
