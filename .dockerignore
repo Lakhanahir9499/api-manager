@@ -1,0 +1,13 @@
+# Ignore everything except what's needed for root Dockerfile (if used)
+backend/Dockerfile
+frontend/Dockerfile
+docker-compose.yml
+nginx/
+*.md
+.git/
+.gitignore
+.env
+.env.*
+node_modules/
+dist/
+build/

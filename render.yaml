@@ -1,5 +1,5 @@
 services:
-  # Backend API Service
+  # Backend API Service - Native Node.js buildpack
   - type: web
     name: api-manager-backend
     runtime: node
@@ -15,9 +15,9 @@ services:
       - key: MONGODB_URI
         value: mongodb+srv://admin_db_user:eFuqxb1VvoQmRLgT@cluster0.mongodb.net/api-manager?retryWrites=true&w=majority&appName=Cluster0
       - key: ADMIN_PASSWORD
-        sync: false  # Set in Render dashboard
+        sync: false
       - key: JWT_SECRET
-        sync: false  # Set in Render dashboard (generate: openssl rand -base64 32)
+        sync: false
       - key: JWT_EXPIRY
         value: 15m
       - key: JWT_REFRESH_EXPIRY
@@ -30,7 +30,7 @@ services:
         value: "10000"
     autoDeploy: true
 
-  # Frontend Static Site
+  # Frontend Static Site - Native static buildpack
   - type: static
     name: api-manager-frontend
     runtime: static
